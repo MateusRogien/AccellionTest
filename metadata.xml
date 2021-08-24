@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+ 
+
+-<md:EntityDescriptor entityID="https://aclnaccsb.westeurope.cloudapp.azure.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso" cacheDuration="PT604800S" validUntil="2021-08-26T07:46:37Z" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+
+ 
+
+ 
+
+-<md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" WantAssertionsSigned="false" AuthnRequestsSigned="false">
+
+ 
+
+ 
+
+-<md:KeyDescriptor use="signing">
+
+ 
+
+ 
+
+-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+
+ 
+
+ 
+
+-<ds:X509Data>
+
+ 
+
+<ds:X509Certificate>MIID+zCCAuOgAwIBAgIJAJ9QB4mStmYsMA0GCSqGSIb3DQEBCwUAMIGTMQswCQYDVQQGEwJVUzELMAkGA1UECAwCQ0ExEjAQBgNVBAcMCVBhbG8gQWx0bzEXMBUGA1UECgwOQWNjZWxsaW9uLCBJbmMxEDAOBgNVBAsMB1N5c3RlbXMxFTATBgNVBAMMDGFjbG5hY2NzYi1oMTEhMB8GCSqGSIb3DQEJARYSaGVscEBhY2NlbGxpb24uY29tMB4XDTIxMDYyOTA2NDQwMloXDTMxMDYyNzA2NDQwMlowgZMxCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJDQTESMBAGA1UEBwwJUGFsbyBBbHRvMRcwFQYDVQQKDA5BY2NlbGxpb24sIEluYzEQMA4GA1UECwwHU3lzdGVtczEVMBMGA1UEAwwMYWNsbmFjY3NiLWgxMSEwHwYJKoZIhvcNAQkBFhJoZWxwQGFjY2VsbGlvbi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMrflMFrq8YUezewk4AaKgthZUSzm43JaN/VOfllZJM70LzyBtmZQ8mS3/SxqV4dj/WUNXlCHMQsrVXmzj0BpbZQREDEkJqxy5waxJ23AJIESB4BtsorhjZuWPWsrslJ2Y/VjLkCqJMzPyWi6sH3gwOKMR4btX/ayK/D2/XCN48ysnKkZlhQcm/Soza4OOZovOc2MMssSTOcfUOnwea7lJa4JwvJSBLlpYp6jCiVff8+PejVu+k9ejFl/xwwja9RgrgBq6/4dDdLRaZBAORfDaPaXlzUFwpTq45p09JIsCudf1Wp1+OpAVaYKH78eSCXKXTVoxk+Z+Qd+pUPtfy2xVAgMBAAGjUDBOMB0GA1UdDgQWBBT23iwU2c/7UDOpCwy70uCOGinwWDAfBgNVHSMEGDAWgBT23iwU2c/7UDOpCwy70uCOGinwWDAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBBNp3mrEEpCNlQ0HwZxn6e1x4w6CafK8fVVSqoSIBaGDXwQB9WhB5QxyKJojM+BVRXXW8uLThbzgi8DMlOZ2m7veDNfumFw0x+iblQlCBKurrnt5MwYrdx/aNvT28AzrqSgUTPbB/LnxP2Xq+oisFLn8shn6a42K/ZLwUR64pZUzv94y0uC6J5/vHE2oRPzSVMqDCxzmonljrTbRTpACyerUlzeF4eHMJWefd89lskXZMWKfglD7yrqO6FXkV1H+BtXRB/raeX9F0cvjyvNo8MK2OidOP9S2qvrsn7S2O6lywLm89n3ZVD+iJZCMn9boJoTx/JpLHfFrEHJ6Mwco0N</ds:X509Certificate>
+
+ 
+
+</ds:X509Data>
+
+ 
+
+</ds:KeyInfo>
+
+ 
+
+</md:KeyDescriptor>
+
+ 
+
+<md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+
+ 
+
+<md:AssertionConsumerService index="1" Location="https://aclnaccsb.westeurope.cloudapp.azure.com/saml/saml2-acs.php" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+
+ 
+
+</md:SPSSODescriptor>
+
+ 
+
+</md:EntityDescriptor>
+
