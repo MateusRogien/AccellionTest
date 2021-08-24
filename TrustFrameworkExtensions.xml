@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TrustFrameworkPolicy 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" 
+  PolicySchemaVersion="0.3.0.0" 
+  TenantId="AccellionPOC.onmicrosoft.com" 
+  PolicyId="B2C_1A_TrustFrameworkExtensions" 
+  PublicPolicyUri="http://AccellionPOC.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+  
+  <BasePolicy>
+    <TenantId>AccellionPOC.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A_TrustFrameworkBase</PolicyId>
+  </BasePolicy>
+ <BuildingBlocks>
+
+  </BuildingBlocks>
+
+  <ClaimsProviders>
+
+    <ClaimsProvider>
+      <DisplayName>Facebook</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Facebook-OAUTH">
+          <Metadata>
+            <Item Key="client_id">facebook_clientid</Item>
+            <Item Key="scope">email public_profile</Item>
+            <Item Key="ClaimsEndpoint">https://graph.facebook.com/me?fields=id,first_name,last_name,name,email</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+
+
+    <ClaimsProvider>
+      <DisplayName>Local Account SignIn</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="login-NonInteractive">
+          <Metadata>
+            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppId" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppId" />
+          </InputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+	
+	<ClaimsProvider>
+	  <DisplayName>AccellionPOC</DisplayName>
+	  <TechnicalProfiles>
+
+		<!-- SAML Token Issuer technical profile -->
+		<TechnicalProfile Id="Saml2AssertionIssuer">
+		  <DisplayName>AccellionPOC</DisplayName>
+		  <Protocol Name="SAML2"/>
+		  <OutputTokenFormat>SAML2</OutputTokenFormat>
+		  <Metadata>
+			<Item Key="IssuerUri">https://aclnaccsb.westeurope.cloudapp.azure.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso</Item>
+		  </Metadata>
+		  <CryptographicKeys>
+			<Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
+			<Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
+		  </CryptographicKeys>
+		  <InputClaims/>
+		  <OutputClaims/>
+		  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-issuer"/>
+		</TechnicalProfile>
+
+		<!-- Session management technical profile for SAML based tokens -->
+		<TechnicalProfile Id="SM-Saml-issuer">
+		  <DisplayName>Session Management Provider</DisplayName>
+		  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+		</TechnicalProfile>
+
+	  </TechnicalProfiles>
+	</ClaimsProvider>
+
+  </ClaimsProviders>
+
+    <!--UserJourneys>
+	
+	</UserJourneys-->
+
+</TrustFrameworkPolicy>
